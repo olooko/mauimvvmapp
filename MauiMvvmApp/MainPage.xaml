@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMvvmApp.MainPage">
+    <Grid>
+        <Border x:Name="ViewContent" StrokeThickness="0" />
+        <Border x:Name="PopupContent" StrokeThickness="0" IsVisible="False" />
+        <!--<Border x:Name="ToastMessage" VerticalOptions="End" BackgroundColor="Black" IsVisible="False">
+            <Label Text="이것은 테스트 메시지입니다." FontFamily="PretendardBold700" FontSize="24" />
+        </Border>-->
+    </Grid>
+
+</ContentPage>

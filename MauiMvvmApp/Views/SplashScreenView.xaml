@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMvvmApp.Views.SplashScreenView"
+             xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels">
+    <ContentView.BindingContext>
+        <viewModels:SplashScreenViewModel />
+    </ContentView.BindingContext>
+    <Grid>
+        <Image Source="dotnet_bot.png" />
+    </Grid>
+</ContentView>
