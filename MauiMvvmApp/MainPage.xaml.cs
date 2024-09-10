@@ -16,16 +16,16 @@
             }
         }
 
-        public void ShowPopupContent(ContentView? contentView)
+        public void ShowDialogContent(ContentView? contentView)
         {
             if (contentView != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                contentView.Parent = this.PopupContent;
+                contentView.Parent = this.DialogContent;
 
-                this.PopupContent.Opacity = 1.0;
-                this.PopupContent.IsVisible = true;
-                this.PopupContent.Content = contentView;
+                this.DialogContent.Opacity = 1.0;
+                this.DialogContent.IsVisible = true;
+                this.DialogContent.Content = contentView;
             }
         }
     }

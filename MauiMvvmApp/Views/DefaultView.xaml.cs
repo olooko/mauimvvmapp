@@ -2,9 +2,9 @@ using MauiMvvmApp.ViewModels;
 
 namespace MauiMvvmApp.Views;
 
-public partial class SplashScreenView : ContentView
+public partial class DefaultView : ContentView
 {
-	public SplashScreenView(SplashScreenViewModel viewModel)
+	public DefaultView(DefaultViewModel viewModel)
 	{
 		InitializeComponent();
 

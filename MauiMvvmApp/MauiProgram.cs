@@ -1,4 +1,5 @@
-﻿using MauiMvvmApp.Services;
+﻿using CommunityToolkit.Maui;
+using MauiMvvmApp.Services;
 using MauiMvvmApp.Views;
 using MauiMvvmApp.ViewModels;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ namespace MauiMvvmApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,9 +25,13 @@ namespace MauiMvvmApp
 #endif
 
             builder.Services.AddSingleton<INavigationService, NavigationService>();
-            builder.Services.AddSingleton<IPopupService, PopupService>();
+            builder.Services.AddSingleton<IDialogService, DialogService>();
 
             builder.Services.AddTransient<SplashScreenView>();
+            builder.Services.AddTransient<DefaultView>();
+
+            builder.Services.AddTransient<SplashScreenViewModel>();
+            builder.Services.AddTransient<DefaultViewModel>();
 
             return builder.Build();
         }
