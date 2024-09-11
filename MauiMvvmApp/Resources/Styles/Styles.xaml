@@ -384,25 +384,18 @@
             </VisualStateGroupList>
         </Setter>
     </Style>
-    
-    <!--<Style x:Key="ButtonControlBorder" TargetType="Border">
-        <Setter Property="BackgroundColor" Value="" />
-        <Setter Property="Stroke" Value="" />
-        <Setter Property="StrokeShape" Value="RoundRectangle 8" />
-        <Setter Property="StrokeThickness" Value="2" />
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource ColorNeutralForeground1}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="16" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal" />
-                    <VisualState x:Name="Disabled" />
-                    <VisualState x:Name="PointerOver">
+                    <VisualState x:Name="Disabled">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="" />
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Black" />
+                            <Setter Property="TextColor" Value="{StaticResource ColorNeutralForegroundDisabled}" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
@@ -410,8 +403,6 @@
         </Setter>
     </Style>
 
-    -->
-    
     <!--
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />

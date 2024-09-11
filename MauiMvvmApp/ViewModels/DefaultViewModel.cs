@@ -1,12 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.DependencyInjection;
+using CommunityToolkit.Mvvm.Input;
+using MauiMvvmApp.Contents;
 using MauiMvvmApp.Services;
-using MauiMvvmApp.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiMvvmApp.ViewModels
 {
@@ -14,12 +9,19 @@ namespace MauiMvvmApp.ViewModels
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly INavigationService _navigationService;
+        private readonly IToastService _toastService;
 
-        public DefaultViewModel(IServiceProvider serviceProvider) 
+        public DefaultViewModel(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
             _navigationService = _serviceProvider.GetRequiredService<INavigationService>();
+            _toastService = _serviceProvider.GetRequiredService<IToastService>();
         }
 
+        [RelayCommand]
+        private void Hello()
+        {
+            _toastService.ShowContent(new AlertContent());
+        }
     }
 }

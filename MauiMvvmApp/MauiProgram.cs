@@ -26,6 +26,7 @@ namespace MauiMvvmApp
 
             builder.Services.AddSingleton<INavigationService, NavigationService>();
             builder.Services.AddSingleton<IDialogService, DialogService>();
+            builder.Services.AddSingleton<IToastService, ToastService>();
 
             builder.Services.AddTransient<SplashScreenView>();
             builder.Services.AddTransient<DefaultView>();

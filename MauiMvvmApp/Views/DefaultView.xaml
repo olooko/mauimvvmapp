@@ -2,24 +2,23 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MauiMvvmApp.Controls" 
+             xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels"
+             x:DataType="viewModels:DefaultViewModel"
              x:Class="MauiMvvmApp.Views.DefaultView"
              Padding="14">
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <Button Text="Sample" />
+            <Button Text="Sample" Command="{Binding HelloCommand}" />
             <Rectangle WidthRequest="4" />
-            <Button Text="Disabled" IsEnabled="False" />
+            <Button Text="Disabled" Command="{Binding HelloCommand}" IsEnabled="False" />
             <Rectangle WidthRequest="4" />
-            <Button Text="Sample" ImageSource="dotnet_bot.png" />
+            <controls:ButtonControl Command="{Binding HelloCommand}">
+                <HorizontalStackLayout>
+                    <Image Source="dotnet_bot.png" HeightRequest="44" />
+                    <Label Text="Sample" />
+                </HorizontalStackLayout>
+            </controls:ButtonControl>
         </HorizontalStackLayout>
-        
-        <!--<controls:ButtonControl />
-        <Button Text="A">
-            <Button.ImageSource>
-                <StreamImageSource />
-            </Button.ImageSource>
-        </Button>-->
-
-        <Label Text="Default" FontSize="50" />
+        <Label Text="Default" />
     </VerticalStackLayout>
 </ContentView>

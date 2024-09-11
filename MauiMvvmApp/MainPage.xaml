@@ -5,9 +5,11 @@
     <Grid>
         <Border x:Name="ViewContent" StrokeThickness="0" />
         <Border x:Name="DialogContent" StrokeThickness="0" IsVisible="False" />
-        <!--<Border x:Name="ToastMessage" VerticalOptions="End" BackgroundColor="Black" IsVisible="False">
-            <Label Text="이것은 테스트 메시지입니다." FontFamily="PretendardBold700" FontSize="24" />
-        </Border>-->
+        <Border x:Name="ToastContent" StrokeThickness="0" IsVisible="False" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,16">
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource ColorNeutralShadowKey}" Offset="0,0" Radius="10" />
+            </Border.Shadow>
+        </Border>
     </Grid>
 
 </ContentPage>
