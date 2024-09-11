@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiMvvmApp.Views.DefaultView">
-    <Grid>
+             xmlns:controls="clr-namespace:MauiMvvmApp.Controls" 
+             x:Class="MauiMvvmApp.Views.DefaultView"
+             Padding="14">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="Sample" />
+            <Rectangle WidthRequest="4" />
+            <Button Text="Disabled" IsEnabled="False" />
+            <Rectangle WidthRequest="4" />
+            <Button Text="Sample" ImageSource="dotnet_bot.png" />
+        </HorizontalStackLayout>
+        
+        <!--<controls:ButtonControl />
+        <Button Text="A">
+            <Button.ImageSource>
+                <StreamImageSource />
+            </Button.ImageSource>
+        </Button>-->
+
         <Label Text="Default" FontSize="50" />
-    </Grid>
+    </VerticalStackLayout>
 </ContentView>
