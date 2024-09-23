@@ -70,6 +70,9 @@
 	  <MauiXaml Update="Controls\ButtonControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\RadioButtonControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ColorsWebDark.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

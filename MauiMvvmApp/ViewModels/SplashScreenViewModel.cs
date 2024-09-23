@@ -20,13 +20,12 @@ namespace MauiMvvmApp.ViewModels
         {
             _serviceProvider = serviceProvider;
             _navigationService = _serviceProvider.GetRequiredService<INavigationService>();
-
-            //_navigationService.SetContent(_serviceProvider.GetRequiredService<DefaultView>());
         }
 
         [RelayCommand]
-        private void Test()
+        private async Task GotoDefault()
         {
+            await Task.Delay(2000);
 
             _navigationService.SetContent(_serviceProvider.GetRequiredService<DefaultView>());
         }

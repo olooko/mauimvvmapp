@@ -6,7 +6,7 @@
              x:DataType="viewModels:SplashScreenViewModel"
              x:Class="MauiMvvmApp.Views.SplashScreenView">
     <ContentView.Behaviors>
-        <toolkit:EventToCommandBehavior EventName="Loaded" Command="{Binding TestCommand}" />
+        <toolkit:EventToCommandBehavior EventName="Loaded" Command="{Binding GotoDefaultCommand}" />
     </ContentView.Behaviors>
     <Grid>
         <Image Source="dotnet_bot.png" />

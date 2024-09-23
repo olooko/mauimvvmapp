@@ -6,25 +6,28 @@
         x:Class="MauiMvvmApp.Controls.ButtonControl">
     <ContentView.ControlTemplate>
         <ControlTemplate>
-            <Border>
+            <Border StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger TargetType="Border" Property="IsEnabled" Value="False">
+                                <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackgroundDisabled}" />
+                                <Setter Property="Stroke" Value="{DynamicResource ColorNeutralStrokeDisabled}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
                 <Border.Behaviors>
                     <toolkit:TouchBehavior DefaultBackgroundColor="{StaticResource ColorNeutralBackground1}"
                                            HoveredBackgroundColor="{StaticResource ColorNeutralBackground1Hover}" 
+                                           PressedBackgroundColor="{StaticResource ColorNeutralBackground1Pressed}"
                                            HoveredAnimationEasing="{x:Static Easing.CubicInOut}"
                                            HoveredAnimationDuration="150"
-                                           PressedBackgroundColor="{StaticResource ColorNeutralBackground1Pressed}" 
                                            PressedAnimationEasing="{x:Static Easing.CubicInOut}"
                                            PressedAnimationDuration="150" 
                                            Command="{Binding Source={x:Reference Root}, Path=Command}" 
                                            CommandParameter="{Binding Source={x:Reference Root}, Path=CommandParameter}" />
                 </Border.Behaviors>
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="StrokeShape" Value="RoundRectangle 4" />
-                        <Setter Property="StrokeThickness" Value="1" />
-                        <Setter Property="Stroke" Value="{StaticResource ColorNeutralStroke1}" />
-                    </Style>
-                </Border.Style>
                 <ContentPresenter VerticalOptions="Center" HorizontalOptions="Center" />
             </Border>
         </ControlTemplate>

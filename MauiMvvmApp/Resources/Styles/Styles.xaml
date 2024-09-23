@@ -356,9 +356,9 @@
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource ColorNeutralForeground1}" />
         <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackground1}" />
+        <Setter Property="BorderColor" Value="{StaticResource ColorNeutralStroke1}"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="BorderWidth" Value="1"/>
-        <Setter Property="BorderColor" Value="{StaticResource ColorNeutralStroke1}"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
@@ -368,16 +368,21 @@
                         <VisualState.Setters>
                             <Setter Property="TextColor" Value="{StaticResource ColorNeutralForegroundDisabled}" />
                             <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackgroundDisabled}" />
+                            <Setter Property="BorderColor" Value="{DynamicResource ColorNeutralStrokeDisabled}" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="PointerOver">
                         <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{StaticResource ColorNeutralForeground1Hover}" />
                             <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackground1Hover}" />
+                            <Setter Property="BorderColor" Value="{DynamicResource ColorNeutralStroke1Hover}" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{StaticResource ColorNeutralForeground1Pressed}" />
                             <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackground1Pressed}" />
+                            <Setter Property="BorderColor" Value="{DynamicResource ColorNeutralStroke1Pressed}" />
                         </VisualState.Setters>                    
                     </VisualState>
                 </VisualStateGroup>
