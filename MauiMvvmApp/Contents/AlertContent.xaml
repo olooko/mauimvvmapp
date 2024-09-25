@@ -4,7 +4,7 @@
              x:Class="MauiMvvmApp.Contents.AlertContent">
     <Border BackgroundColor="{StaticResource ColorNeutralBackground1}" Padding="12">
         <VerticalStackLayout>
-            <Label Text="Welcome to .NET MAUI!" />
+            <Label x:Name="Message" />
         </VerticalStackLayout>
     </Border>
 </ContentView>

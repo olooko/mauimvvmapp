@@ -29,21 +29,16 @@
         </HorizontalStackLayout>
         <BoxView HeightRequest="12" />
         <Label Text="RadioButton" />
-        <HorizontalStackLayout RadioButtonGroup.GroupName="texts">
-            <controls:RadioButtonControl>
+        <HorizontalStackLayout Spacing="4" RadioButtonGroup.GroupName="Texts" RadioButtonGroup.SelectedValue="{Binding RadioValue}">
+            <controls:RadioButtonControl Value="Radio1" CheckedChangedCommand="{Binding RadioCheckedChangedCommand}">
                 <Label Text="Radio 1" />
             </controls:RadioButtonControl>
-            <Rectangle WidthRequest="4" />
-            <controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="Radio2" CheckedChangedCommand="{Binding RadioCheckedChangedCommand}">
                 <Label Text="Radio 2" />
             </controls:RadioButtonControl>
-            <Rectangle WidthRequest="4" />
-            <controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="Radio3" CheckedChangedCommand="{Binding RadioCheckedChangedCommand}">
                 <Label Text="Radio 3" />
             </controls:RadioButtonControl>
         </HorizontalStackLayout>
-        
-        
-        
     </VerticalStackLayout>
 </ContentView>

@@ -10,10 +10,10 @@ public partial class ButtonControl : ContentView
     }
 
     public static readonly BindableProperty CommandProperty =
-    BindableProperty.Create(
-        propertyName: nameof(Command),
-        returnType: typeof(ICommand),
-        declaringType: typeof(ButtonControl));
+        BindableProperty.Create(
+            propertyName: nameof(Command),
+            returnType: typeof(ICommand),
+            declaringType: typeof(ButtonControl));
 
     public static readonly BindableProperty CommandParameterProperty =
         BindableProperty.Create(

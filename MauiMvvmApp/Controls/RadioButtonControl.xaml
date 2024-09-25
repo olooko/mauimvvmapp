@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="Root"
              x:Class="MauiMvvmApp.Controls.RadioButtonControl">
     <ContentView.ControlTemplate>
         <ControlTemplate>
-            <RadioButton>
+            <RadioButton MinimumWidthRequest="0" Value="{Binding Source={Reference Root}, Path=Value}">
+                <RadioButton.Behaviors>
+                    <toolkit:EventToCommandBehavior x:TypeArguments="CheckedChangedEventArgs" EventName="CheckedChanged" Command="{Binding Source={Reference Root}, Path=CheckedChangedCommand}" />
+                </RadioButton.Behaviors>
                 <RadioButton.ControlTemplate>
                     <ControlTemplate>
                         <Border WidthRequest="90" HeightRequest="90" StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}" BackgroundColor="{StaticResource ColorNeutralBackground1}">
@@ -24,7 +29,7 @@
                                     </VisualStateGroup>
                                 </VisualStateGroupList>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter />
+                            <ContentPresenter HorizontalOptions="Center" VerticalOptions="Center" />
                         </Border>
                     </ControlTemplate>
                 </RadioButton.ControlTemplate>

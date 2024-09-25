@@ -2,8 +2,10 @@ namespace MauiMvvmApp.Contents;
 
 public partial class AlertContent : ContentView
 {
-	public AlertContent()
+	public AlertContent(string message)
 	{
 		InitializeComponent();
+
+		this.Message.Text = message;
 	}
 }

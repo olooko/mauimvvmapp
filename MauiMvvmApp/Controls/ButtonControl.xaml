@@ -25,8 +25,8 @@
                                            HoveredAnimationDuration="150"
                                            PressedAnimationEasing="{x:Static Easing.CubicInOut}"
                                            PressedAnimationDuration="150" 
-                                           Command="{Binding Source={x:Reference Root}, Path=Command}" 
-                                           CommandParameter="{Binding Source={x:Reference Root}, Path=CommandParameter}" />
+                                           Command="{Binding Source={Reference Root}, Path=Command}" 
+                                           CommandParameter="{Binding Source={Reference Root}, Path=CommandParameter}" />
                 </Border.Behaviors>
                 <ContentPresenter VerticalOptions="Center" HorizontalOptions="Center" />
             </Border>
