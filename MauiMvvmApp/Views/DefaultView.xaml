@@ -23,7 +23,7 @@
             <controls:ButtonControl Command="{Binding HelloCommand}" IsEnabled="False">
                 <HorizontalStackLayout Margin="9,3,9,2">
                     <Image Source="dotnet_bot.png" HeightRequest="44" />
-                    <Label Text="Sample" VerticalOptions="Center" />
+                    <Label Text="Disabled" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </controls:ButtonControl>
         </HorizontalStackLayout>

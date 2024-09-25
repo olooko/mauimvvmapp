@@ -9,6 +9,7 @@
             <Border StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}">
                 <Border.Style>
                     <Style TargetType="Border">
+                        <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackground1}" />
                         <Style.Triggers>
                             <Trigger TargetType="Border" Property="IsEnabled" Value="False">
                                 <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackgroundDisabled}" />
