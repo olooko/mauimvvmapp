@@ -12,7 +12,7 @@
                 </RadioButton.Behaviors>
                 <RadioButton.ControlTemplate>
                     <ControlTemplate>
-                        <Border WidthRequest="90" HeightRequest="90" StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}" BackgroundColor="{StaticResource ColorNeutralBackground1}">
+                        <Border StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}" BackgroundColor="{StaticResource ColorNeutralBackground1}">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroupList>
                                     <VisualStateGroup x:Name="CheckedStates">

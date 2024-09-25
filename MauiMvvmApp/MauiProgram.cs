@@ -30,9 +30,11 @@ namespace MauiMvvmApp
 
             builder.Services.AddTransient<SplashScreenView>();
             builder.Services.AddTransient<DefaultView>();
+            builder.Services.AddTransient<DataView>();
 
             builder.Services.AddTransient<SplashScreenViewModel>();
             builder.Services.AddTransient<DefaultViewModel>();
+            builder.Services.AddTransient<DataViewModel>();
 
             return builder.Build();
         }

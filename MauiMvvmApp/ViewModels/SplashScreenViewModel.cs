@@ -25,7 +25,7 @@ namespace MauiMvvmApp.ViewModels
         [RelayCommand]
         private async Task GotoDefault()
         {
-            await Task.Delay(2000);
+            await Task.Delay(1000);
 
             _navigationService.SetContent(_serviceProvider.GetRequiredService<DefaultView>());
         }

@@ -12,7 +12,7 @@ namespace MauiMvvmApp.ViewModels
         private readonly IToastService _toastService;
 
         [ObservableProperty]
-        private object? _radioValue;
+        private object? _radioButtonValue;
 
         public DefaultViewModel(IServiceProvider serviceProvider)
         {
@@ -20,7 +20,7 @@ namespace MauiMvvmApp.ViewModels
             _navigationService = _serviceProvider.GetRequiredService<INavigationService>();
             _toastService = _serviceProvider.GetRequiredService<IToastService>();
 
-            _radioValue = "Radio2";
+            _radioButtonValue = "Radio2";
         }
 
         [RelayCommand]
@@ -30,10 +30,16 @@ namespace MauiMvvmApp.ViewModels
         }
 
         [RelayCommand]
-        private void RadioCheckedChanged(CheckedChangedEventArgs e)
+        private void RadioButtonCheckedChanged(CheckedChangedEventArgs e)
         {
             if (e.Value == true)
-                _toastService.ShowContent(new AlertContent((string)this.RadioValue));
+                _toastService.ShowContent(new AlertContent((string)this.RadioButtonValue));
+        }
+
+        [RelayCommand]
+        private void CheckBoxCheckedChanged(bool isChecked)
+        {
+            _toastService.ShowContent(new AlertContent(isChecked.ToString()));
         }
     }
 }
