@@ -2,25 +2,25 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MauiMvvmApp.Controls" 
-             xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels"
+             xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels" 
              x:DataType="viewModels:DefaultViewModel"
              x:Class="MauiMvvmApp.Views.DefaultView"
              Padding="14">
     <VerticalStackLayout>
         <Label Text="Button" />
         <HorizontalStackLayout>
-            <Button Text="Sample" Command="{Binding HelloCommand}" />
+            <Button Text="Hello" Command="{Binding HelloCommand}" />
             <Rectangle WidthRequest="4" />
             <Button Text="Disabled" Command="{Binding HelloCommand}" IsEnabled="False" />
             <Rectangle WidthRequest="4" />
-            <controls:ButtonControl Command="{Binding HelloCommand}">
+            <controls:ButtonControl Command="{Binding DialogCommand}">
                 <HorizontalStackLayout Margin="9,3,9,2">
                     <Image Source="dotnet_bot.png" HeightRequest="44" />
-                    <Label Text="Sample" VerticalOptions="Center" />
+                    <Label Text="Dialog" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </controls:ButtonControl>
             <Rectangle WidthRequest="4" />
-            <controls:ButtonControl Command="{Binding HelloCommand}" IsEnabled="False">
+            <controls:ButtonControl Command="{Binding DialogCommand}" IsEnabled="False">
                 <HorizontalStackLayout Margin="9,3,9,2">
                     <Image Source="dotnet_bot.png" HeightRequest="44" />
                     <Label Text="Disabled" VerticalOptions="Center" />

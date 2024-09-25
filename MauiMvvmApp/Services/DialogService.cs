@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MauiMvvmApp.Dialogs;
 
 namespace MauiMvvmApp.Services
 {
     public interface IDialogService
     {
-        public void ShowContent(ContentView contentView);
+        public void ShowContent(DialogBase dialogBase);
     }
 
     public class DialogService : IDialogService
     {
-        public void ShowContent(ContentView contentView)
+        public void ShowContent(DialogBase dialogBase)
         {
             MainPage? page = App.Current!.MainPage as MainPage;
-            page!.ShowDialogContent(contentView);
+            page!.ShowDialogContent(dialogBase);
         }
     }
 }

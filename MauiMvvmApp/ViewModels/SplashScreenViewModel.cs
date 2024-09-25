@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MauiMvvmApp.ViewModels
 {
-    public partial class SplashScreenViewModel : ObservableObject
+    public partial class SplashScreenViewModel : ViewModelBase
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly INavigationService _navigationService;

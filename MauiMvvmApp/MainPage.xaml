@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiMvvmApp.MainPage">
     <Grid>
-        <Border x:Name="ViewContent" StrokeThickness="0" />
-        <Border x:Name="DialogContent" StrokeThickness="0" IsVisible="False" />
-        <Border x:Name="ToastContent" StrokeThickness="0" IsVisible="False" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,16">
+        <Border x:Name="ViewContainer" StrokeThickness="0" />
+        <Border x:Name="DialogContainer" StrokeThickness="0" IsVisible="False" BackgroundColor="{StaticResource ColorBackgroundOverlay}" />
+        <Border x:Name="ToastContainer" StrokeThickness="0" IsVisible="False" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,16">
             <Border.Shadow>
                 <Shadow Brush="{StaticResource ColorNeutralShadowKey}" Offset="0,0" Radius="10" />
             </Border.Shadow>

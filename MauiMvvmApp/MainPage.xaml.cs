@@ -1,10 +1,17 @@
-﻿namespace MauiMvvmApp
+﻿using MauiMvvmApp.Dialogs;
+using MauiMvvmApp.Toasts;
+
+namespace MauiMvvmApp
 {
     public partial class MainPage : ContentPage
     {
+        private static EventWaitHandle ewh;
+
         public MainPage()
         {
             InitializeComponent();
+
+            ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
         }
 
         public void SetViewContent(ContentView? contentView)
@@ -12,36 +19,38 @@
             if (contentView != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                this.ViewContent.Content = contentView;
+                this.ViewContainer.Content = contentView;
             }
         }
 
-        public void ShowDialogContent(ContentView? contentView)
+        public void ShowDialogContent(DialogBase? dialogBase)
         {
-            if (contentView != null)
+            if (dialogBase != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                contentView.Parent = this.DialogContent;
+                dialogBase.Parent = this.DialogContainer;
 
-                this.DialogContent.Opacity = 1.0;
-                this.DialogContent.IsVisible = true;
-                this.DialogContent.Content = contentView;
+                this.DialogContainer.Opacity = 1.0;
+                this.DialogContainer.IsVisible = true;
+                this.DialogContainer.Content = dialogBase;
+
+                //ewh.WaitOne();
             }
         }
 
-        public async void ShowToastContent(ContentView? contentView)
+        public async void ShowToastContent(ToastBase? toastBase)
         {
-            if (contentView != null)
+            if (toastBase != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                contentView.Parent = this.ToastContent;
+                toastBase.Parent = this.ToastContainer;
 
-                this.ToastContent.IsVisible = true;
-                this.ToastContent.Content = contentView;
+                this.ToastContainer.IsVisible = true;
+                this.ToastContainer.Content = toastBase;
 
-                await this.ToastContent.FadeTo(1, 1000, Easing.CubicOut);
-                await this.ToastContent.FadeTo(1, 4000);
-                await this.ToastContent.FadeTo(0, 1000, Easing.CubicIn);
+                await this.ToastContainer.FadeTo(1, 1000, Easing.CubicOut);
+                await this.ToastContainer.FadeTo(1, 4000);
+                await this.ToastContainer.FadeTo(0, 1000, Easing.CubicIn);
             }
         }
     }

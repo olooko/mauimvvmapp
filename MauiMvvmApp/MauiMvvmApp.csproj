@@ -64,13 +64,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Dialogs\AlertDialog.xaml.cs">
+	    <DependentUpon>AlertDialog.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Controls\CheckboxControl.xaml.cs">
 	    <DependentUpon>CheckboxControl.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Toasts\AlertToast.xaml.cs">
+	    <DependentUpon>AlertToast.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Contents\AlertContent.xaml">
+	  <MauiXaml Update="Dialogs\AlertDialog.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Toasts\AlertToast.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\ButtonControl.xaml">

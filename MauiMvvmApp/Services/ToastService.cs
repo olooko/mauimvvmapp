@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MauiMvvmApp.Toasts;
 
 namespace MauiMvvmApp.Services
 {
     public interface IToastService
     {
-        public void ShowContent(ContentView contentView);
+        public void ShowContent(ToastBase toastBase);
     }
 
     public class ToastService : IToastService
     {
-        public void ShowContent(ContentView contentView)
+        public void ShowContent(ToastBase toastBase)
         {
             MainPage? page = App.Current!.MainPage as MainPage;
-            page!.ShowToastContent(contentView);
+            page!.ShowToastContent(toastBase);
         }
     }
 }

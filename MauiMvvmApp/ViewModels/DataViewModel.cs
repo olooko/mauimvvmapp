@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MauiMvvmApp.ViewModels
 {
-    public partial class DataViewModel : ObservableObject
+    public partial class DataViewModel : ViewModelBase
     {
         [ObservableProperty]
         private ObservableCollection<Models.SampleDataModel> _sampleDataList;

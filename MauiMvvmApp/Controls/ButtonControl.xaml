@@ -19,7 +19,15 @@
                     </Style>
                 </Border.Style>
                 <Border.Behaviors>
-                    <toolkit:TouchBehavior Command="{Binding Source={Reference Root}, Path=Command}" />
+                    <toolkit:TouchBehavior DefaultBackgroundColor="{StaticResource ColorNeutralBackground1}"
+                                           HoveredBackgroundColor="{StaticResource ColorNeutralBackground1Hover}" 
+                                           PressedBackgroundColor="{StaticResource ColorNeutralBackground1Pressed}" 
+                                           HoveredAnimationEasing="{x:Static Easing.CubicInOut}"
+                                           HoveredAnimationDuration="150"
+                                           PressedAnimationEasing="{x:Static Easing.CubicInOut}"
+                                           PressedAnimationDuration="150" 
+                                           Command="{Binding Source={x:Reference Root}, Path=Command}" 
+                                           CommandParameter="{Binding Source={x:Reference Root}, Path=CommandParameter}" />
                 </Border.Behaviors>
                 <ContentPresenter VerticalOptions="Center" HorizontalOptions="Center" />
             </Border>

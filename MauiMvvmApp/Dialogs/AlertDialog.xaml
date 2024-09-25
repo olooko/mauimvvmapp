@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dialogs:DialogBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dialogs="clr-namespace:MauiMvvmApp.Dialogs"
+             x:Class="MauiMvvmApp.Dialogs.AlertDialog"
+             WidthRequest="400" HeightRequest="200">
+    <Border BackgroundColor="{StaticResource ColorNeutralBackground1}" Padding="12">
+        <Grid>
+            <Label x:Name="TitleLabel" VerticalOptions="Start" />
+            <VerticalStackLayout VerticalOptions="End">
+                <Entry x:Name="TextEntry" />
+                <Button Text="Close" Clicked="Button_Clicked" />
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+</dialogs:DialogBase>
