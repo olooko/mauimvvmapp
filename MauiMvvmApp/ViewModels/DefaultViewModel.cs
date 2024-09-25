@@ -31,13 +31,13 @@ namespace MauiMvvmApp.ViewModels
         }
 
         [RelayCommand]
-        private void Dialog()
+        private async Task Dialog()
         {
             AlertDialog dialog = new AlertDialog();
             dialog.Title = "Dialog";
             dialog.Text = "This is Sample.";
 
-            _dialogService.ShowContent(dialog);
+            await _dialogService.ShowContent(dialog);
 
             _toastService.ShowContent(new AlertToast(dialog.Text));
         }

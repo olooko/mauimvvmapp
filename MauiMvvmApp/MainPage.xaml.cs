@@ -5,13 +5,13 @@ namespace MauiMvvmApp
 {
     public partial class MainPage : ContentPage
     {
-        private static EventWaitHandle ewh;
+        
 
         public MainPage()
         {
             InitializeComponent();
 
-            ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
+            
         }
 
         public void SetViewContent(ContentView? contentView)
@@ -23,7 +23,7 @@ namespace MauiMvvmApp
             }
         }
 
-        public void ShowDialogContent(DialogBase? dialogBase)
+        public async Task ShowDialogContent(DialogBase? dialogBase)
         {
             if (dialogBase != null)
             {
@@ -34,7 +34,7 @@ namespace MauiMvvmApp
                 this.DialogContainer.IsVisible = true;
                 this.DialogContainer.Content = dialogBase;
 
-                //ewh.WaitOne();
+                await dialogBase.Show();
             }
         }
 
