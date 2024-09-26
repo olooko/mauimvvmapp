@@ -2,12 +2,19 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MauiMvvmApp.Models"
+             xmlns:controls="clr-namespace:MauiMvvmApp.Controls"
              xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels"
              x:DataType="viewModels:DataViewModel"
              x:Class="MauiMvvmApp.Views.DataView"
              Padding="14">
     <Grid>
-        <CollectionView ItemsSource="{Binding SampleDataList}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="14" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Text="GetItems" Command="{Binding GetItemsCommand}" />
+        <CollectionView Grid.Row="2" ItemsSource="{Binding SampleDataList}" ItemsLayout="VerticalList" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:SampleDataModel">
                     <VerticalStackLayout>

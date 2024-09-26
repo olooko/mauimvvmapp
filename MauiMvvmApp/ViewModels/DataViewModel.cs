@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +19,24 @@ namespace MauiMvvmApp.ViewModels
         {
             _sampleDataList = new ObservableCollection<Models.SampleDataModel>();
 
+            GetItems();
+        }
+
+        [RelayCommand]
+        private void GetItems()
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+
+            this.SampleDataList.Clear();
+
             for (int i = 1; i <= 2000; i++)
             {
-                _sampleDataList.Add(new Models.SampleDataModel() { Id = i, Name = string.Format("이름 {0}", i), Description = string.Format("설명 {0}: 설명은 두줄이 될 만큼 아주 길게 쓸 예정입니다.", i) });
+                string guid = Guid.NewGuid().ToString();
+
+                this.SampleDataList.Add(new Models.SampleDataModel() { Id = guid, Name = string.Format("이름 {0}", guid), Description = string.Format("설명 {0}: 설명은 두줄이 될 만큼 아주 길게 쓸 예정입니다.", guid) });
             }
+
+            Debug.WriteLine(sw.ElapsedMilliseconds.ToString());
         }
     }
 }
