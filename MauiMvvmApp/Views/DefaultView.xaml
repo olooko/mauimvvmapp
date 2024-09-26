@@ -31,21 +31,26 @@
         <Label Text="RadioButton" />
         <HorizontalStackLayout Spacing="4" RadioButtonGroup.GroupName="Texts" RadioButtonGroup.SelectedValue="{Binding RadioButtonValue}">
             <controls:RadioButtonControl Value="Radio1" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 1" Margin="30" />
+                <Label Text="Radio 1" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="Radio2" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 2" Margin="30" />
+                <Label Text="Radio 2" Margin="9,3,9,2"/>
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="Radio3" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 3" Margin="30" />
+                <Label Text="Radio 3" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
         </HorizontalStackLayout>
         <BoxView HeightRequest="12" />
         <Label Text="CheckBox" />
         <HorizontalStackLayout Spacing="4">
             <controls:CheckBoxControl CheckedChangedCommand="{Binding CheckBoxCheckedChangedCommand}">
-                <Label Text="Check 1" Margin="30" />
+                <Label Text="Check 1" Margin="9,3,9,2" />
             </controls:CheckBoxControl>
         </HorizontalStackLayout>
+        <BoxView HeightRequest="12" />
+        <Label Text="Entry" />
+        <controls:EntryControl>
+            <Label Text="Text -> " />
+        </controls:EntryControl>
     </VerticalStackLayout>
 </ContentView>
