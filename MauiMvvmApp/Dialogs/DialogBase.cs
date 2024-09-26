@@ -17,18 +17,16 @@ namespace MauiMvvmApp.Dialogs
             _token = new CancellationToken();
         }
 
-        public async Task Show()
+        public async Task<bool> Modal()
         {
             ((Border)this.Parent).IsVisible = true;
-
-            await _taskCompletionSource.Task.WaitAsync(_token);
+            return (bool)await _taskCompletionSource.Task.WaitAsync(_token);
         }
 
-        public void Close()
+        public void Close(bool result)
         {
             ((Border)this.Parent).IsVisible = false;
-            _taskCompletionSource.SetResult(new object());
-
+            _taskCompletionSource.SetResult(result);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace MauiMvvmApp
             }
         }
 
-        public async Task ShowDialogContent(DialogBase? dialogBase)
+        public async Task<bool> ShowDialogContent(DialogBase? dialogBase)
         {
             if (dialogBase != null)
             {
@@ -34,8 +34,9 @@ namespace MauiMvvmApp
                 this.DialogContainer.IsVisible = true;
                 this.DialogContainer.Content = dialogBase;
 
-                await dialogBase.Show();
+                return await dialogBase.Modal();
             }
+            return false;
         }
 
         public async void ShowToastContent(ToastBase? toastBase)

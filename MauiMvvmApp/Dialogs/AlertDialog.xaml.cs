@@ -19,8 +19,13 @@ public partial class AlertDialog : DialogBase
 		InitializeComponent();
 	}
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private void OkButton_Clicked(object sender, EventArgs e)
     {
-		this.Close();
+		this.Close(true);
+    }
+
+    private void CancelButton_Clicked(object sender, EventArgs e)
+    {
+        this.Close(false);
     }
 }

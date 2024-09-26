@@ -37,9 +37,10 @@ namespace MauiMvvmApp.ViewModels
             dialog.Title = "Dialog";
             dialog.Text = "This is Sample.";
 
-            await _dialogService.ShowContent(dialog);
-
-            _toastService.ShowContent(new AlertToast(dialog.Text));
+            if (await _dialogService.ShowContent(dialog))
+            {
+                _toastService.ShowContent(new AlertToast(dialog.Text));
+            }
         }
 
         [RelayCommand]

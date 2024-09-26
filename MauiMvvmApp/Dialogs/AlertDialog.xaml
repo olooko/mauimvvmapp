@@ -9,7 +9,8 @@
             <Label x:Name="TitleLabel" VerticalOptions="Start" />
             <VerticalStackLayout VerticalOptions="End">
                 <Entry x:Name="TextEntry" />
-                <Button Text="Close" Clicked="Button_Clicked" />
+                <Button Text="Ok" Clicked="OkButton_Clicked" />
+                <Button Text="Cancel" Clicked="CancelButton_Clicked" />
             </VerticalStackLayout>
         </Grid>
     </Border>
