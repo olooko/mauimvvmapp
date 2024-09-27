@@ -1,17 +1,14 @@
 ﻿using MauiMvvmApp.Dialogs;
 using MauiMvvmApp.Toasts;
+using Microsoft.VisualBasic;
 
 namespace MauiMvvmApp
 {
     public partial class MainPage : ContentPage
     {
-        
-
         public MainPage()
         {
             InitializeComponent();
-
-            
         }
 
         public void SetViewContent(ContentView? contentView)
@@ -21,6 +18,14 @@ namespace MauiMvvmApp
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
                 this.ViewContainer.Content = contentView;
             }
+        }
+
+        public void ShowComboBoxContent(List<string> strings)
+        {
+            this.ComboBoxContent.Opacity = 1.0;
+            this.ComboBoxContent.IsVisible = true;
+
+            this.ComboBoxItems.ItemsSource = strings;
         }
 
         public async Task<bool> ShowDialogContent(DialogBase? dialogBase)
@@ -53,6 +58,14 @@ namespace MauiMvvmApp
                 await this.ToastContainer.FadeTo(1, 4000);
                 await this.ToastContainer.FadeTo(0, 1000, Easing.CubicIn);
             }
+        }
+
+        private void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            this.ComboBoxContent.Opacity = 0.0;
+            this.ComboBoxContent.IsVisible = false;
+
+            this.ComboBoxItems.ItemsSource = null;
         }
     }
 

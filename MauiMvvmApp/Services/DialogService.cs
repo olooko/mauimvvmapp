@@ -11,8 +11,8 @@ namespace MauiMvvmApp.Services
     {
         public async Task<bool> ShowContent(DialogBase dialogBase)
         {
-            MainPage? page = App.Current!.MainPage as MainPage;
-            return await page!.ShowDialogContent(dialogBase);
+            MainPage? mainPage = App.Current!.MainPage as MainPage;
+            return await mainPage!.ShowDialogContent(dialogBase);
         }
     }
 }

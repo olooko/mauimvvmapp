@@ -11,8 +11,8 @@ namespace MauiMvvmApp.Services
     {
         public void ShowContent(ToastBase toastBase)
         {
-            MainPage? page = App.Current!.MainPage as MainPage;
-            page!.ShowToastContent(toastBase);
+            MainPage? mainPage = App.Current!.MainPage as MainPage;
+            mainPage!.ShowToastContent(toastBase);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace MauiMvvmApp.ViewModels
         {
             await Task.Delay(1000);
 
-            _navigationService.SetContent(_serviceProvider.GetRequiredService<DataView>());
+            _navigationService.SetContent(_serviceProvider.GetRequiredService<DefaultView>());
         }
 
     }

@@ -48,9 +48,14 @@
             </controls:CheckBoxControl>
         </HorizontalStackLayout>
         <BoxView HeightRequest="12" />
-        <Label Text="Entry" />
-        <controls:EntryControl>
+        <Label Text="TextBox" />
+        <controls:TextBoxControl>
             <Label Text="Text -> " />
-        </controls:EntryControl>
+        </controls:TextBoxControl>
+        <BoxView HeightRequest="12" />
+        <Label Text="ComboBox" />
+        <controls:ComboBoxControl>
+            <Label Text="Combo 1" />
+        </controls:ComboBoxControl>
     </VerticalStackLayout>
 </ContentView>

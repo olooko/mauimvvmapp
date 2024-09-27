@@ -15,10 +15,10 @@ namespace MauiMvvmApp.Services
     {
         public void SetContent(ContentView? contentView)
         {
-            MainPage? page = App.Current!.MainPage as MainPage;
+            MainPage? mainPage = App.Current!.MainPage as MainPage;
 
-            if (page != null)
-                page.SetViewContent(contentView);
+            if (mainPage != null)
+                mainPage.SetViewContent(contentView);
         }
     }
 }

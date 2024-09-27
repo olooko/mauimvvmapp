@@ -64,11 +64,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\TextBoxControl.xaml.cs">
+	    <DependentUpon>TextBoxControl.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Dialogs\AlertDialog.xaml.cs">
 	    <DependentUpon>AlertDialog.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Controls\CheckboxControl.xaml.cs">
-	    <DependentUpon>CheckboxControl.xaml</DependentUpon>
+	    <DependentUpon>CheckBoxControl.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Toasts\AlertToast.xaml.cs">
 	    <DependentUpon>AlertToast.xaml</DependentUpon>
@@ -76,7 +79,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Controls\EntryControl.xaml">
+	  <MauiXaml Update="Controls\ComboBoxControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\TextBoxControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Dialogs\AlertDialog.xaml">
@@ -91,7 +97,7 @@
 	  <MauiXaml Update="Controls\RadioButtonControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Controls\CheckboxControl.xaml">
+	  <MauiXaml Update="Controls\CheckBoxControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ColorsDark.xaml">
