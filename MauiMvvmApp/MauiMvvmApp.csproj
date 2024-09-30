@@ -112,6 +112,9 @@
 	  <MauiXaml Update="Resources\Styles\ColorsTeamsHighContrast.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ColorView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DataView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

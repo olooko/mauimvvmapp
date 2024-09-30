@@ -8,6 +8,7 @@ namespace MauiMvvmApp.ViewModels
 {
     public partial class DefaultViewModel : ViewModelBase
     {
+        private readonly IApplicationService _applicationService;
         private readonly INavigationService _navigationService;
         private readonly IToastService _toastService;
         private readonly IDialogService _dialogService;
@@ -17,11 +18,12 @@ namespace MauiMvvmApp.ViewModels
 
         public DefaultViewModel(IServiceProvider serviceProvider)
         {
+            _applicationService = serviceProvider.GetRequiredService<IApplicationService>();
             _navigationService = serviceProvider.GetRequiredService<INavigationService>();
             _toastService = serviceProvider.GetRequiredService<IToastService>();
             _dialogService = serviceProvider.GetRequiredService<IDialogService>();
 
-            _radioButtonValue = "Radio2";
+            _radioButtonValue = "Light";
         }
 
         [RelayCommand]
@@ -47,7 +49,10 @@ namespace MauiMvvmApp.ViewModels
         private void RadioButtonCheckedChanged(CheckedChangedEventArgs e)
         {
             if (e.Value == true)
+            {
+                _applicationService.ChangeTheme((string)this.RadioButtonValue!);
                 _toastService.ShowContent(new AlertToast((string)this.RadioButtonValue!));
+            }
         }
 
         [RelayCommand]

@@ -7,6 +7,25 @@
              x:Class="MauiMvvmApp.Views.DefaultView"
              Padding="14">
     <VerticalStackLayout>
+        <Label Text="RadioButton" />
+        <HorizontalStackLayout Spacing="4" RadioButtonGroup.GroupName="Texts" RadioButtonGroup.SelectedValue="{Binding RadioButtonValue}">
+            <controls:RadioButtonControl Value="Light" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
+                <Label Text="Radio Light" Margin="9,3,9,2" />
+            </controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="Dark" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
+                <Label Text="Radio Dark" Margin="9,3,9,2"/>
+            </controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="TeamsLight" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
+                <Label Text="Radio TeamsLight" Margin="9,3,9,2" />
+            </controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="TeamsDark" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
+                <Label Text="Radio TeamsDark" Margin="9,3,9,2" />
+            </controls:RadioButtonControl>
+            <controls:RadioButtonControl Value="TeamsHighContrast" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
+                <Label Text="Radio TeamsHighContrast" Margin="9,3,9,2" />
+            </controls:RadioButtonControl>
+        </HorizontalStackLayout>
+        <BoxView HeightRequest="12" />
         <Label Text="Button" />
         <HorizontalStackLayout>
             <Button Text="Hello" Command="{Binding HelloCommand}" />
@@ -26,19 +45,6 @@
                     <Label Text="Disabled" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </controls:ButtonControl>
-        </HorizontalStackLayout>
-        <BoxView HeightRequest="12" />
-        <Label Text="RadioButton" />
-        <HorizontalStackLayout Spacing="4" RadioButtonGroup.GroupName="Texts" RadioButtonGroup.SelectedValue="{Binding RadioButtonValue}">
-            <controls:RadioButtonControl Value="Radio1" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 1" Margin="9,3,9,2" />
-            </controls:RadioButtonControl>
-            <controls:RadioButtonControl Value="Radio2" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 2" Margin="9,3,9,2"/>
-            </controls:RadioButtonControl>
-            <controls:RadioButtonControl Value="Radio3" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio 3" Margin="9,3,9,2" />
-            </controls:RadioButtonControl>
         </HorizontalStackLayout>
         <BoxView HeightRequest="12" />
         <Label Text="CheckBox" />
