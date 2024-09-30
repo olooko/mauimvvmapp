@@ -88,6 +88,9 @@
 	  <MauiXaml Update="Dialogs\AlertDialog.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Brushes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Toasts\AlertToast.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

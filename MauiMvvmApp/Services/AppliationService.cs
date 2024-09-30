@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MauiMvvmApp.Resources.Styles;
 
 namespace MauiMvvmApp.Services
 {
@@ -15,7 +11,21 @@ namespace MauiMvvmApp.Services
     {
         public void ChangeTheme(string theme)
         {
-            //Application.Current!.Resources.MergedDictionaries.ElementAt(0).Source = new Uri(string.Format("/Styles/Colors{0}.xaml", theme), UriKind.Relative);
+            var dictionaries = Application.Current!.Resources.MergedDictionaries;
+
+            dictionaries.Clear();
+
+            switch (theme)
+            {
+                case "Light": dictionaries.Add(new ColorsLight()); break;
+                case "Dark": dictionaries.Add(new ColorsDark()); break;
+                case "TeamsDark": dictionaries.Add(new ColorsTeamsDark()); break;
+                case "TeamsHighContrast": dictionaries.Add(new ColorsTeamsHighContrast()); break;
+                case "TeamsLight": dictionaries.Add(new ColorsTeamsLight()); break;
+            }
+
+            dictionaries.Add(new Brushes());
+            dictionaries.Add(new Styles());
         }
     }
 }
