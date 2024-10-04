@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Controls\ComboBoxControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\ComboBoxItemControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\TextBoxControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

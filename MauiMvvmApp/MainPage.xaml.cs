@@ -1,6 +1,6 @@
 ﻿using MauiMvvmApp.Dialogs;
+using MauiMvvmApp.Models;
 using MauiMvvmApp.Toasts;
-using Microsoft.VisualBasic;
 
 namespace MauiMvvmApp
 {
@@ -20,12 +20,12 @@ namespace MauiMvvmApp
             }
         }
 
-        public void ShowComboBoxContent(List<string> strings)
+        public void ShowComboBoxContent(List<ComboBoxItemModel> items)
         {
             this.ComboBoxContent.Opacity = 1.0;
             this.ComboBoxContent.IsVisible = true;
 
-            this.ComboBoxItems.ItemsSource = strings;
+            this.ComboBoxList.ItemsSource = items;
         }
 
         public async Task<bool> ShowDialogContent(DialogBase? dialogBase)
@@ -65,7 +65,7 @@ namespace MauiMvvmApp
             this.ComboBoxContent.Opacity = 0.0;
             this.ComboBoxContent.IsVisible = false;
 
-            this.ComboBoxItems.ItemsSource = null;
+            this.ComboBoxList.ItemsSource = null;
         }
     }
 

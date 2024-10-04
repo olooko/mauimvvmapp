@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiMvvmApp.Controls"
              x:Class="MauiMvvmApp.MainPage">
     <Grid>
         <Border x:Name="ViewContainer" StrokeThickness="0" />
@@ -13,10 +14,16 @@
         <Border x:Name="ComboBoxContent" StrokeThickness="0" IsVisible="False" BackgroundColor="{StaticResource ColorBackgroundOverlay}">
             <Border HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource ColorNeutralBackground1}" Stroke="{StaticResource ColorNeutralStroke1}" StrokeThickness="1" StrokeShape="RoundRectangle 4">
                 <VerticalStackLayout>
-                    <CollectionView x:Name="ComboBoxItems" />
+                    <CollectionView x:Name="ComboBoxList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:ComboBoxItemControl Text="{Binding Text}" Value="{Binding Value}" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Rectangle HeightRequest="1" Stroke="Red" />
                     <Button Text="Cancel" Clicked="CancelButton_Clicked" />
                 </VerticalStackLayout>
-                
             </Border>
         </Border>
     </Grid>
