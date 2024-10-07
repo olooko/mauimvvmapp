@@ -1,4 +1,5 @@
 using MauiMvvmApp.Models;
+using System.Windows.Input;
 
 namespace MauiMvvmApp.Controls;
 
@@ -9,18 +10,50 @@ public partial class ComboBoxControl : ContentView
 		InitializeComponent();
 	}
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    public static readonly BindableProperty DisplayTextProperty =
+        BindableProperty.Create(
+            propertyName: nameof(DisplayText),
+            returnType: typeof(string),
+            declaringType: typeof(ComboBoxControl));
+
+    public static readonly BindableProperty ItemsSourceProperty =
+        BindableProperty.Create(
+            propertyName: nameof(ItemsSource),
+            returnType: typeof(IEnumerable<ComboBoxItemModel>),
+            declaringType: typeof(ComboBoxControl));
+
+    public static readonly BindableProperty SelectionChangedCommandProperty =
+        BindableProperty.Create(
+            propertyName: nameof(SelectionChangedCommand),
+            returnType: typeof(ICommand),
+            declaringType: typeof(ComboBoxControl));
+
+    public string DisplayText
+    {
+        get => (string)GetValue(DisplayTextProperty);
+        set => SetValue(DisplayTextProperty, value);
+    }
+
+    public IEnumerable<ComboBoxItemModel> ItemsSource
+    {
+        get => (IEnumerable<ComboBoxItemModel>)GetValue(ItemsSourceProperty);
+        set => SetValue(ItemsSourceProperty, value);
+    }
+
+    public ICommand SelectionChangedCommand
+    {
+        get => (ICommand)GetValue(SelectionChangedCommandProperty);
+        set => SetValue(SelectionChangedCommandProperty, value);
+    }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         MainPage? mainPage = App.Current!.MainPage as MainPage;
 
-        List<ComboBoxItemModel> items = new List<ComboBoxItemModel>();
-        items.Add(new ComboBoxItemModel { Text = "A", Value = 1.1 });
-        items.Add(new ComboBoxItemModel { Text = "B", Value = 2.2 });
-        items.Add(new ComboBoxItemModel { Text = "C", Value = 3.3 });
-        items.Add(new ComboBoxItemModel { Text = "D", Value = 4.4 });
-        items.Add(new ComboBoxItemModel { Text = "E", Value = 5.5 });
-        items.Add(new ComboBoxItemModel { Text = "F", Value = 6.6 });
+        var item = await mainPage!.ShowComboBoxContent(this.ItemsSource);
 
-        mainPage!.ShowComboBoxContent(items);
+        this.DisplayText = item.Text;
+        
+        SelectionChangedCommand.Execute(item);
     }
 }

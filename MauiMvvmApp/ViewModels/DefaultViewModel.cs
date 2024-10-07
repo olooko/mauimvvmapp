@@ -2,7 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using MauiMvvmApp.Toasts;
 using MauiMvvmApp.Dialogs;
+using MauiMvvmApp.Models;
 using MauiMvvmApp.Services;
+using System.Collections.ObjectModel;
 
 namespace MauiMvvmApp.ViewModels
 {
@@ -16,6 +18,10 @@ namespace MauiMvvmApp.ViewModels
         [ObservableProperty]
         private object? _radioButtonValue;
 
+        [ObservableProperty]
+        private ObservableCollection<ComboBoxItemModel> _comboBoxList;
+
+
         public DefaultViewModel(IServiceProvider serviceProvider)
         {
             _applicationService = serviceProvider.GetRequiredService<IApplicationService>();
@@ -24,6 +30,14 @@ namespace MauiMvvmApp.ViewModels
             _dialogService = serviceProvider.GetRequiredService<IDialogService>();
 
             _radioButtonValue = "Light";
+
+            _comboBoxList = new ObservableCollection<ComboBoxItemModel>();
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "A", Value = 1.1 });
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "B", Value = 2.2 });
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "C", Value = 3.3 });
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "D", Value = 4.4 });
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "E", Value = 5.5 });
+            _comboBoxList.Add(new ComboBoxItemModel { Text = "F", Value = 6.6 });
         }
 
         [RelayCommand]
@@ -59,6 +73,14 @@ namespace MauiMvvmApp.ViewModels
         private void CheckBoxCheckedChanged(bool isChecked)
         {
             _toastService.ShowContent(new AlertToast(isChecked.ToString()));
+        }
+
+        [RelayCommand]
+        private void ComboBoxSelectionChanged(object parameter)
+        {
+            var itemModel = parameter as ComboBoxItemModel;
+
+            _toastService.ShowContent(new AlertToast(itemModel.Value.ToString()));
         }
     }
 }

@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Name="Root"
              x:Class="MauiMvvmApp.Controls.ComboBoxItemControl">
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Source={Reference Root}, Path=Text}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Border StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}" Margin="4" Padding="4">
+        <VerticalStackLayout>
+            <Label Text="{Binding Source={Reference Root}, Path=Text}" VerticalOptions="Center" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Border>
+
 </ContentView>

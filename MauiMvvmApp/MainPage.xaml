@@ -4,9 +4,9 @@
              xmlns:controls="clr-namespace:MauiMvvmApp.Controls"
              x:Class="MauiMvvmApp.MainPage">
     <Grid>
-        <Border x:Name="ViewContainer" StrokeThickness="0" />
-        <Border x:Name="DialogContainer" StrokeThickness="0" IsVisible="False" BackgroundColor="{StaticResource ColorBackgroundOverlay}" />
-        <Border x:Name="ToastContainer" StrokeThickness="0" IsVisible="False" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,16">
+        <Border x:Name="ViewContent" StrokeThickness="0" />
+        <Border x:Name="DialogContent" StrokeThickness="0" IsVisible="False" BackgroundColor="{StaticResource ColorBackgroundOverlay}" />
+        <Border x:Name="ToastContent" StrokeThickness="0" IsVisible="False" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,16">
             <Border.Shadow>
                 <Shadow Brush="{StaticResource ColorNeutralShadowKey}" Offset="0,0" Radius="10" />
             </Border.Shadow>
@@ -14,7 +14,7 @@
         <Border x:Name="ComboBoxContent" StrokeThickness="0" IsVisible="False" BackgroundColor="{StaticResource ColorBackgroundOverlay}">
             <Border HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource ColorNeutralBackground1}" Stroke="{StaticResource ColorNeutralStroke1}" StrokeThickness="1" StrokeShape="RoundRectangle 4">
                 <VerticalStackLayout>
-                    <CollectionView x:Name="ComboBoxList">
+                    <CollectionView x:Name="ComboBoxList" SelectionMode="Single" SelectionChanged="ComboBoxList_SelectionChanged">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <controls:ComboBoxItemControl Text="{Binding Text}" Value="{Binding Value}" />
@@ -22,7 +22,7 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                     <Rectangle HeightRequest="1" Stroke="Red" />
-                    <Button Text="Cancel" Clicked="CancelButton_Clicked" />
+                    <Button Text="Cancel" Clicked="ComboBoxList_CancelButtonClicked" />
                 </VerticalStackLayout>
             </Border>
         </Border>

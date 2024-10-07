@@ -60,8 +60,6 @@
         </controls:TextBoxControl>
         <BoxView HeightRequest="12" />
         <Label Text="ComboBox" />
-        <controls:ComboBoxControl>
-            <Label Text="Combo 1" />
-        </controls:ComboBoxControl>
+        <controls:ComboBoxControl ItemsSource="{Binding ComboBoxList}" SelectionChangedCommand="{Binding ComboBoxSelectionChangedCommand}" />
     </VerticalStackLayout>
 </ContentView>

@@ -1,11 +1,16 @@
-﻿using MauiMvvmApp.Dialogs;
+﻿using MauiMvvmApp.Controls;
+using MauiMvvmApp.Dialogs;
 using MauiMvvmApp.Models;
 using MauiMvvmApp.Toasts;
+using System.Threading.Tasks;
 
 namespace MauiMvvmApp
 {
     public partial class MainPage : ContentPage
     {
+        private TaskCompletionSource<ComboBoxItemModel> _comboBoxCompletionSource;
+        private CancellationToken _comboBoxToken;
+
         public MainPage()
         {
             InitializeComponent();
@@ -16,16 +21,21 @@ namespace MauiMvvmApp
             if (contentView != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                this.ViewContainer.Content = contentView;
+                this.ViewContent.Content = contentView;
             }
         }
 
-        public void ShowComboBoxContent(List<ComboBoxItemModel> items)
+        public async Task<ComboBoxItemModel> ShowComboBoxContent(IEnumerable<ComboBoxItemModel> items)
         {
             this.ComboBoxContent.Opacity = 1.0;
             this.ComboBoxContent.IsVisible = true;
 
             this.ComboBoxList.ItemsSource = items;
+            
+            _comboBoxCompletionSource = new TaskCompletionSource<ComboBoxItemModel>();
+            _comboBoxToken = new CancellationToken();
+
+            return await _comboBoxCompletionSource.Task.WaitAsync(_comboBoxToken);
         }
 
         public async Task<bool> ShowDialogContent(DialogBase? dialogBase)
@@ -33,11 +43,11 @@ namespace MauiMvvmApp
             if (dialogBase != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                dialogBase.Parent = this.DialogContainer;
+                dialogBase.Parent = this.DialogContent;
 
-                this.DialogContainer.Opacity = 1.0;
-                this.DialogContainer.IsVisible = true;
-                this.DialogContainer.Content = dialogBase;
+                this.DialogContent.Opacity = 1.0;
+                this.DialogContent.IsVisible = true;
+                this.DialogContent.Content = dialogBase;
 
                 return await dialogBase.Modal();
             }
@@ -49,24 +59,33 @@ namespace MauiMvvmApp
             if (toastBase != null)
             {
                 //contentView.Content.Scale = (DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density) / 1920;
-                toastBase.Parent = this.ToastContainer;
+                toastBase.Parent = this.ToastContent;
 
-                this.ToastContainer.IsVisible = true;
-                this.ToastContainer.Content = toastBase;
+                this.ToastContent.IsVisible = true;
+                this.ToastContent.Content = toastBase;
 
-                await this.ToastContainer.FadeTo(1, 1000, Easing.CubicOut);
-                await this.ToastContainer.FadeTo(1, 4000);
-                await this.ToastContainer.FadeTo(0, 1000, Easing.CubicIn);
+                await this.ToastContent.FadeTo(1, 1000, Easing.CubicOut);
+                await this.ToastContent.FadeTo(1, 4000);
+                await this.ToastContent.FadeTo(0, 1000, Easing.CubicIn);
             }
         }
 
-        private void CancelButton_Clicked(object sender, EventArgs e)
+        private void ComboBoxList_CancelButtonClicked(object sender, EventArgs e)
         {
             this.ComboBoxContent.Opacity = 0.0;
             this.ComboBoxContent.IsVisible = false;
 
             this.ComboBoxList.ItemsSource = null;
         }
-    }
 
+        private void ComboBoxList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _comboBoxCompletionSource.SetResult((ComboBoxItemModel)e.CurrentSelection[0]);
+
+            this.ComboBoxContent.Opacity = 0.0;
+            this.ComboBoxContent.IsVisible = false;
+
+            this.ComboBoxList.ItemsSource = null;
+        }
+    }
 }
