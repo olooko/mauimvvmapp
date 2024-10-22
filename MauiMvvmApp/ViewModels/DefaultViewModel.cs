@@ -59,14 +59,20 @@ namespace MauiMvvmApp.ViewModels
             }
         }
 
+        partial void OnRadioButtonValueChanged(object? value)
+        {
+            _applicationService.ChangeTheme((string)value!);
+            //    _toastService.ShowContent(new AlertToast((string)this.RadioButtonValue!));
+        }
+
         [RelayCommand]
         private void RadioButtonCheckedChanged(CheckedChangedEventArgs e)
         {
-            if (e.Value == true)
-            {
-                _applicationService.ChangeTheme((string)this.RadioButtonValue!);
-                _toastService.ShowContent(new AlertToast((string)this.RadioButtonValue!));
-            }
+            //if (e.Value == true)
+            //{
+            //    _applicationService.ChangeTheme((string)this.RadioButtonValue!);
+            //    _toastService.ShowContent(new AlertToast((string)this.RadioButtonValue!));
+            //}
         }
 
         [RelayCommand]

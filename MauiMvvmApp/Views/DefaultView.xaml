@@ -5,24 +5,25 @@
              xmlns:viewModels="clr-namespace:MauiMvvmApp.ViewModels" 
              x:DataType="viewModels:DefaultViewModel"
              x:Class="MauiMvvmApp.Views.DefaultView"
-             Padding="14">
+             Padding="14"
+             Background="{DynamicResource ColorNeutralBackground1Brush}">
     <VerticalStackLayout>
         <Label Text="RadioButton" />
         <HorizontalStackLayout Spacing="4" RadioButtonGroup.GroupName="Texts" RadioButtonGroup.SelectedValue="{Binding RadioButtonValue}">
             <controls:RadioButtonControl Value="Light" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio Light" Margin="9,3,9,2" />
+                <Label Text="Light" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="Dark" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio Dark" Margin="9,3,9,2"/>
+                <Label Text="Dark" Margin="9,3,9,2"/>
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="TeamsLight" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio TeamsLight" Margin="9,3,9,2" />
+                <Label Text="Teams Light" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="TeamsDark" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio TeamsDark" Margin="9,3,9,2" />
+                <Label Text="Teams Dark" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
             <controls:RadioButtonControl Value="TeamsHighContrast" CheckedChangedCommand="{Binding RadioButtonCheckedChangedCommand}">
-                <Label Text="Radio TeamsHighContrast" Margin="9,3,9,2" />
+                <Label Text="Teams High Contrast" Margin="9,3,9,2" />
             </controls:RadioButtonControl>
         </HorizontalStackLayout>
         <BoxView HeightRequest="12" />

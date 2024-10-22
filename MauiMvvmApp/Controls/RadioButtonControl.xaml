@@ -12,18 +12,18 @@
                 </RadioButton.Behaviors>
                 <RadioButton.ControlTemplate>
                     <ControlTemplate>
-                        <Border StrokeShape="RoundRectangle 4" StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}" BackgroundColor="{StaticResource ColorNeutralBackground1}">
+                        <Border StrokeShape="RoundRectangle 4" StrokeThickness="10" Stroke="{DynamicResource ColorNeutralStroke1}" BackgroundColor="{DynamicResource ColorNeutralBackground1}">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroupList>
                                     <VisualStateGroup x:Name="CheckedStates">
                                         <VisualState x:Name="Checked">
                                             <VisualState.Setters>
-                                                <Setter Property="Stroke" Value="{StaticResource ColorBrandStroke1}" />
+                                                <Setter Property="Stroke" Value="{DynamicResource ColorBrandStroke1}" />
                                             </VisualState.Setters>
                                         </VisualState>
                                         <VisualState x:Name="Unchecked">
                                             <VisualState.Setters>
-                                                <Setter Property="Stroke" Value="{StaticResource ColorNeutralStroke1}" />
+                                                <Setter Property="Stroke" Value="{DynamicResource ColorNeutralStroke1}" />
                                             </VisualState.Setters>
                                         </VisualState>
                                     </VisualStateGroup>

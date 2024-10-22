@@ -5,19 +5,19 @@
              x:Class="MauiMvvmApp.Controls.CheckBoxControl">
     <ContentView.ControlTemplate>
         <ControlTemplate>
-            <Border StrokeThickness="1" Stroke="{StaticResource ColorNeutralStroke1}">
+            <Border StrokeThickness="1" Stroke="{DynamicResource ColorNeutralStroke1}">
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                 </Border.GestureRecognizers>
                 <Border.Style>
                     <Style TargetType="Border">
-                        <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackground1}" />
+                        <Setter Property="BackgroundColor" Value="{DynamicResource ColorNeutralBackground1}" />
                         <Style.Triggers>
                             <DataTrigger TargetType="Border" Binding="{Binding Source={x:Reference Root}, Path=IsChecked}" Value="True">
-                                <Setter Property="BackgroundColor" Value="{StaticResource ColorBrandForeground1}" />
+                                <Setter Property="BackgroundColor" Value="{DynamicResource ColorBrandForeground1}" />
                             </DataTrigger>
                             <Trigger TargetType="Border" Property="IsEnabled" Value="False">
-                                <Setter Property="BackgroundColor" Value="{StaticResource ColorNeutralBackgroundDisabled}" />
+                                <Setter Property="BackgroundColor" Value="{DynamicResource ColorNeutralBackgroundDisabled}" />
                                 <Setter Property="Stroke" Value="{DynamicResource ColorNeutralStrokeDisabled}" />
                             </Trigger>
                         </Style.Triggers>
